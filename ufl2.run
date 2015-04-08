@@ -1,0 +1,4 @@
+model UFL2.mod;
+data UFL.dat;
+option solver "./cplex";
+solve;

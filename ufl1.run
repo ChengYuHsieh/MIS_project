@@ -1,0 +1,6 @@
+model submodel.mod;
+data split_10.dat;
+option solver "./ampl/cplex";
+solve;
+display X;
+display Y;
