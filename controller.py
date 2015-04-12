@@ -6,6 +6,28 @@ import split
 import submod
 import merge
 
+def lancal(ret,anv):
+	mm=anv[0]
+	nn=anv[1]
+	hh=anv[2]
+	ff=anv[3]
+	dd=anv[4]
+	ll=ret[0]
+	xx=ret[2]
+	yy=ret[3]
+	retval=0
+	for i in range(mm):
+		for j in range(nn):
+			retval+=float(hh[i])*float(dd[j][i])*float(yy[j][i])
+	for j in range(nn):
+		retval+=float(ff[j])*float(xx[j])
+	instance = np.array([1.0]*mm)
+	for i in range(mm):
+		for j in range(nn):
+			instance[i]-=float(yy[j][i])
+		retval+=ll[i]*instance[i]
+	return retval
+
 def main():
 	num = 1
 	m = int(raw_input("The number of demand:"))
@@ -17,20 +39,18 @@ def main():
 	# run random to generate random nums
 	generator.main(num,m,n,hbar,dbar,fbar)
 	
-	iteration = 1.0
-	lamda = np.array([100]*m)	#init lamda
-	stop = False
+	prelamda = np.array([100]*m)	#init lamda
 	while True:		
 		# split the random nums and generate j subdata files
-		coor = split.main(lamda)
+		coor = split.main(prelamda)	#three element: 1. demand_coor 2, supply_coor 3. hi
 		# solve each submodel and save the ampl solution 
 		submod.main(n)
-		# merge the sols and rewrite the lamda in datafiles
-		returnitem = merge.main(m,n,lamda,iteration,stop)
-		lamda = returnitem[0]
-		iteration+=1
-		if returnitem[1]:
-			break
+		# merge the sols
+		returnitem = merge.main(m,n)	#returnitem = [Xi,Yi,Z,subgrad]
+		
+		
+		
+		
 
 	# output graph txt
 	f = open('graph.txt','w')

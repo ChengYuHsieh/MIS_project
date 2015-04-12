@@ -1,5 +1,5 @@
 model submodel.mod;
-data split_10.dat;
+data split_5.dat;
 option solver "./ampl/cplex";
 solve;
 display X;

@@ -7,7 +7,7 @@ def main(lamda):
 	dij = list()
 	demand_coor = list()
 	supply_coor = list()
-	coor = [demand_coor,supply_coor]
+	returnitem = [demand_coor,supply_coor] # the return item of the function, has three element, 1. demand_coor 2, supply_coor 3. hi
 	for line in f:
 		if index ==1:
 			m = int(line)
@@ -15,14 +15,12 @@ def main(lamda):
 			n = int(line)
 		elif index==3:
 			hi = line
-			coor.append(hi)
+			returnitem.append(hi) # append hi to the coor list
 		elif index>3 and index <=3+m:
-			# pass
 			demand_coor.append(line)
 		elif index ==4+m:
 			fj = line
 		elif index >4+m and index <= 4+m+n:
-			# pass
 			supply_coor.append(line)
 		elif index >= 5+m+n:
 			dij.append(line)
@@ -32,27 +30,11 @@ def main(lamda):
 	dij = [item.split() for item in dij]
 	
 	dij_splt = zip(*dij)
-	# print dij_splt
 	fj_splt = fj.split()
-	# print fj_splt
 	f.close()
-	# lamda = (0,0,0)
-	# print 'split_lamda'+str(lamda)
+
 	for j in range(n):
 		fname = 'split_'+str(j+1)+'.dat'
-		# f = open(fname,'w')
-		# f.write(str(m)+'\n')
-		# f.write('1\n')
-		# f.write(hi)
-		# f.write(fj_splt[j]+'\n')
-		# for i in range(m):
-		# 	f.write(dij_splt[j][i]+'\n')
-		
-		# for item in lamda:
-		# 	f.write(str(item)+' ')
-		# f.close()
-
-		# openf = open(fname,'r')
 		f = open(fname,'w')
 		x = [i+1 for i in range(m)]
 		x = ' '.join(str(p) for p in x)
@@ -79,6 +61,6 @@ def main(lamda):
 			else:
 				f.write(str(i+1)+' '+dij_splt[j][i]+'\n')
 		f.close()
-	return coor
+	return returnitem
 if __name__=="__main__":
 	main()

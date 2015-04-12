@@ -1,7 +1,7 @@
 import sys
 import numpy as np
 import random
-def main(m,n,lamda,iteration,stop):
+def main(m,n):
 	# m = int(sys.argv[1]) # number of demand
 	# n = int(sys.argv[2]) # number of supplier
 	# lamda = int(sys.argv[3]) #value of lamda
@@ -25,20 +25,13 @@ def main(m,n,lamda,iteration,stop):
 		Yi.append(subY)
 		
 	subgrad = np.array([1]*m)-np.array([sum(i) for i in zip(*Yi)])
-	adj = 0
-	for i in range(n):
-		adj+= np.inner(np.array(Yi[i]),lamda)
-	print 'objective Z:'+ str(Z)	
-
-	if iteration==199:
-		stop= True
-		print Z
-		print Xi
-		print Yi
+	print 'objective Z: '+ str(Z)	
+	print 'Xi: '+str(Xi)
+	print 'Yi: '+str(Yi)
 	print 'grad'+str(subgrad)
-	new_lamda = lamda + (5/iteration)*subgrad
-	print 'lamda'+str(new_lamda)
-	return [new_lamda,stop,Xi,Yi]
+	# new_lamda = lamda + (5/iteration)*subgrad
+	# print 'lamda'+str(new_lamda)
+	return [Xi,Yi,Z,subgrad]
 
 
 

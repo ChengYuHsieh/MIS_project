@@ -60,24 +60,5 @@ def main(num,m,n,hbar,dbar,fbar):
 				fo.write(str(d[i][j])+' ')
 			fo.write('\n')
 
-		# print ('num= ', num)
-		# print ('m= ', m)
-		# print ('n= ', n)
-		# print ('hi= ')
-		# for i in range (m):
-		# 	print (hi[i])
-		# print ('demand: ')
-		# for i in range (m):
-		# 	print (str(demand[i].x) + ' ' + str(demand[i].y))
-		# print ('fj= ')
-		# for i in range (n):
-		# 	print (fj[i])		
-		# print('supply: ')
-		# for i in range(n):
-		# 	print (str(supply[i].x) + ' ' + str(supply[i].y))
-		# for i in range(m):
-		# 	print (d[i])
-		# print ('\n')
-
 if __name__=="__main__":
 	main()
