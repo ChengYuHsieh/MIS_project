@@ -53,28 +53,28 @@ def main():
 		
 
 	# output graph txt
-	f = open('graph.txt','w')
-	f.write(str(dbar)+'\n')
-	f.write(str(m)+'\n')
-	for item in coor[0]:
-		f.write(item)
-	f.write(str(n)+'\n')
-	for item in coor[1]:
-		f.write(item)
-	f.write(coor[2])
+	# f = open('graph.txt','w')
+	# f.write(str(dbar)+'\n')
+	# f.write(str(m)+'\n')
+	# for item in coor[0]:
+	# 	f.write(item)
+	# f.write(str(n)+'\n')
+	# for item in coor[1]:
+	# 	f.write(item)
+	# f.write(coor[2])
 	# Xj = ' '.join(returnitem[2].split())
 	# f.write(Xj+'\n')
-	for i in range(len(returnitem[2])):
-		if i == len(returnitem[2])-1:
-			f.write(str(returnitem[2][i])+'\n')
-		else:
-			f.write(str(returnitem[2][i])+' ')
-	for line in zip(*returnitem[3]):
-		for i in range(len(line)):
-			if i == len(line)-1:
-				f.write(str(line[i])+'\n')
-			else:
-				f.write(str(line[i])+' ')
+	# for i in range(len(returnitem[2])):
+	# 	if i == len(returnitem[2])-1:
+	# 		f.write(str(returnitem[2][i])+'\n')
+	# 	else:
+	# 		f.write(str(returnitem[2][i])+' ')
+	# for line in zip(*returnitem[3]):
+	# 	for i in range(len(line)):
+	# 		if i == len(line)-1:
+	# 			f.write(str(line[i])+'\n')
+	# 		else:
+	# 			f.write(str(line[i])+' ')
 
 	
 	
