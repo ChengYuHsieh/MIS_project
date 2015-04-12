@@ -23,7 +23,7 @@ def main(m,n):
 				subY.append(int(line.split()[1]))
 			index +=1
 		Yi.append(subY)
-		
+		Yi = zip(*Yi)
 	subgrad = np.array([1]*m)-np.array([sum(i) for i in zip(*Yi)])
 	print 'objective Z: '+ str(Z)	
 	print 'Xi: '+str(Xi)
